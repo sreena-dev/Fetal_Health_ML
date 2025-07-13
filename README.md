@@ -62,27 +62,40 @@ The following steps were undertaken to develop and evaluate the classification m
 
 ## Visualization
 
-To understand the data's distribution and the impact of preprocessing, several visualizations were created:
+To understand the data's distribution, relationships between features, and model training progress, several visualizations were created:
+
+### Feature Correlation Heatmap
+
+This heatmap illustrates the correlation matrix of the dataset's features, helping to identify highly correlated features and their relationships with the target variable.
+
+![Feature Correlation Heatmap](outcomes/heatmap.png)
 
 ### 2D Data Spread (PCA-reduced, Matplotlib)
 
 This plot shows the training and test data points reduced to two principal components, color-coded by fetal health category, providing a flat view of their separation.
 
-**![2D PCA Scatter Plot](fetal_health_2d_pca_scatter.png)**
-*(Placeholder: Replace with your generated `fetal_health_2d_pca_scatter.png` image)*
+![2D PCA Scatter Plot](outcomes/fetal_health_2d_pca_scatter.png)
+
 
 ### 3D Data Spread (PCA-reduced, Plotly)
 
 This interactive 3D plot provides a deeper insight into the distribution of the SMOTE-resampled training data and the original test data in a 3-dimensional space (after PCA to 3 components).
 
-[Link to Hosted 3D Plotly Visualization](fetal_health_3d_pca_scatter.html)
-*(Placeholder: Replace with the actual hosted link to your `fetal_health_3d_pca_scatter.html` file)*
+[Link to Hosted 3D Plotly Visualization](https://sreena-dev.github.io/Fetal_Health_ML/fetal_health_3d_pca_interactive_2.html)
+
+### Training and Validation Curve
+
+This graph visualizes the training and validation loss/accuracy over epochs, indicating the model's learning progress and helping to detect overfitting or underfitting.
+
+
 
 ---
 
 ## Results and Impact
 
 The initial model achieved an approximate accuracy of **91%** on the test set. By incorporating SMOTE for handling class imbalance, the model's ability to correctly classify minority classes (Suspect and Pathological) was significantly improved, as evidenced by enhanced recall and F1-scores in the classification report, leading to a more reliable and robust diagnostic tool for fetal health.
+
+![Feature Correlation Heatmap](outcomes/train_test_graph.png)
 
 ---
 
@@ -93,7 +106,7 @@ The initial model achieved an approximate accuracy of **91%** on the test set. B
     git clone <your-repository-url>
     cd <your-repository-name>
     ```
-2.  **Place the Dataset:** Ensure `fetal_health.csv` is in the root directory of the project.
+2.  **Place the Dataset and Images:** Ensure `fetal_health.csv` is in the root directory. Create an `outcomes` folder and place `heatmap.png` and `train_test graph.png` inside it.
 3.  **Install Dependencies:**
     ```bash
     pip install pandas numpy tensorflow scikit-learn imbalanced-learn plotly matplotlib seaborn
